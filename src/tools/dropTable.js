@@ -30,8 +30,7 @@ class DropTableItem {
   }
 }
 
-// TODO: currently testing this with rare drop table
-export default function translate(input) {
+export function translate(input) {
   return input.split('\n').map(line => {
     // replace weird hyphen:
     line = line.replace(/–/g, '-')
@@ -175,4 +174,25 @@ function parseRangeStr(str) {
 
 function parseNum(str) {
   return Number(str.replace(/,/g, ''))
+}
+
+export function calcRarityNumber(rarityStr) {
+  if (rarityStr.includes('/')) {
+    const [ top, bottom ] = rarityStr.split('/')
+    return parseNum(top) / parseNum(bottom)
+  }
+  switch (rarityStr) {
+    case 'Always':
+      return 1
+    case 'Common':
+      return 15/100
+    case 'Uncommon':
+      return 3/100
+    case 'Rare':
+      return .75/100
+    case 'Very rare':
+      return .1/100
+    default:
+      throw Error(`Unrecognized rarity string: ${rarityStr}`)
+  }
 }

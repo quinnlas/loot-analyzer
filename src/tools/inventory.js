@@ -76,6 +76,19 @@ export class Inventory {
     this._calculateValue()
   }
 
+  takeAction(actionType, itemStack) {
+    switch (actionType) {
+      case 'take':
+        this.addItemStack(itemStack)
+        break
+      case 'ignore':
+        break
+      case 'alch':
+        this.coins += itemStack.item.alchValue
+        this._calculateValue()
+    }
+  }
+
   setTotalSlots(totalSlots) {
     if (totalSlots < this.slots.length) throw Error('Trying to reduce size of inventory below current number of items')
     this.totalSlots = Number(totalSlots)

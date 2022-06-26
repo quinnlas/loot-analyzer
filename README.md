@@ -26,6 +26,7 @@ These are features that would be in the best possible version of this project, b
 - Automatically pull the drop table from the wiki.
 - Pull high alch prices from the wiki.
 - These would be cached locally.
+- Convert to alt1 plugin
 
 ## Project setup
 ```
@@ -61,5 +62,9 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
 - ~~calculate value of inventory~~
 - ~~config alch cost, notepaper cost, inventory spaces~~
 - ~~fix bootstrap-vue css~~
-- sort drop table by rarity
+- ~~sort drop table by rarity~~
+  - ~~need to determine the cutoffs, can just use Common 15%, Uncommon 3%, Rare .75%, Very Rare .1%~~
 - option to easily enable/disable rare drop table
+- saving state so it's there after a refresh
+- various useful thresholds:
+  - don't recommend alching over taking if only a certain profit difference (eg 10 gp)
